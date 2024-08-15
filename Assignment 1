@@ -1,2 +1,146 @@
 #Q1. Write a Python program that prints "Hello, World!" to the console.
 print("Hello World!")
+
+Output:
+Hello, World!
+
+#Q2. Create variables to store your name, age, and favourite hobby. Print these variables.
+name = "John Doe"
+age = 25
+favorite_hobby = "Reading"
+
+print("Name:", name)
+print("Age:", age)
+print("Favorite Hobby:", favorite_hobby)
+
+Output:
+Name: John Doe
+Age: 25
+Favorite Hobby: Reading
+
+#Q3. Add comments to your code explaining what each line does.
+
+# Storing the variables
+name = "John Doe"        # This line stores the name as a string in the variable 'name'
+age = 25                 # This line stores the age as an integer in the variable 'age'
+favorite_hobby = "Reading"  # This line stores the favorite hobby as a string in the variable 'favorite_hobby'
+
+# Printing the variables
+print("Name:", name)           # This line prints the text "Name:" followed by the value stored in 'name'
+print("Age:", age)             # This line prints the text "Age:" followed by the value stored in 'age'
+print("Favorite Hobby:", favorite_hobby)  # This line prints the text "Favorite Hobby:" followed by the value stored in 'favorite_hobby'
+
+#Q4. Write a Python program that takes an integer input from the user and prints whether the number is positive, negative, or zero. 
+
+number = int(input("Enter an integer: "))
+
+if number > 0:
+    print("The number is positive.")
+elif number < 0:
+    print("The number is negative.")
+else:
+    print("The number is zero.")
+
+Output:
+Enter an integer: 5
+The number is positive.
+
+#Q5. Create a program that checks if a given year is a leap year.
+
+year = int(input("Enter a year: "))
+
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print(f"{year} is a leap year.")
+else:
+    print(f"{year} is not a leap year.")
+
+Output:
+Enter a year: 2024
+2024 is a leap year.
+
+#Q6. Write a Python program to print the first 10 natural numbers using a for loop.
+
+for i in range(1, 11):  # The range function generates numbers from 1 to 10 (inclusive)
+    print(i)
+
+Output:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+#Q7.Create a program that prints the multiplication table of a given number using a while loop.
+
+number = int(input("Enter a number: "))
+i = 1
+while i <= 10:
+    print(f"{number} x {i} = {number * i}")
+    i += 1  # Incrementing the counter
+
+Output:
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+
+#Q8. Write a Python program that iterates through numbers 1 to 10 and prints each number. Use the continue statement to skip numbers that are divisible by 3.
+
+for i in range(1, 11):
+    if i % 3 == 0:
+        continue;
+    print(i)
+
+Output:
+1
+2
+4
+5
+7
+8
+10
+
+#Q9. Create a program that stops printing numbers when it encounters a number greater than 5 using the break statement.
+
+for i in range(1, 11):
+    if i > 5:
+        break;
+    print(i)
+
+Output:
+1
+2
+3
+4
+5
+
+#Q10. Define a function called greet that takes a name as an argument and prints "Hello, [name]!".
+
+def greet(name):
+    print(f"Hello, {name}!")
+greet("Alice");
+
+Output:
+Hello, Alice!
+
+#Q11. Create a function that takes two numbers as arguments and returns their sum.
+
+def add_numbers(num1, num2):
+    return num1 + num2;
+result = add_numbers(5, 3)
+print("The sum is:", result)
+
+Output:
+The sum is: 8
+
