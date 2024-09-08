@@ -1,0 +1,43 @@
+import yfinance as yf
+import pandas as pd
+
+# List of stock symbols for NSE and BSE (sample list, you can extend this list)
+nse_symbols = ['RELIANCE.NS', 'TCS.NS', 'INFY.NS', 'HDFCBANK.NS', 'ICICIBANK.NS']
+bse_symbols = ['500325.BO', '532540.BO', '500209.BO', '500180.BO', '532174.BO']
+
+# Function to fetch stock data for a list of symbols
+def fetch_stock_data(symbols, exchange):
+    stock_data = []
+    for symbol in symbols:
+        stock = yf.Ticker(symbol)
+        hist = stock.history(period='1d')  # Fetching only the latest day's data
+        if not hist.empty:
+            latest_data = hist.iloc[-1]
+            stock_data.append({
+                "Symbol": symbol,
+                "Exchange": exchange,
+                "Date": latest_data.name,
+                "Open": latest_data['Open'],
+                "High": latest_data['High'],
+                "Low": latest_data['Low'],
+                "Close": latest_data['Close'],
+                "Volume": latest_data['Volume']
+            })
+    return stock_data
+
+# Fetch NSE stock data
+nse_data = fetch_stock_data(nse_symbols, 'NSE')
+
+# Fetch BSE stock data
+bse_data = fetch_stock_data(bse_symbols, 'BSE')
+
+# Combine NSE and BSE stock data
+all_stock_data = nse_data + bse_data
+
+# Create a DataFrame from the stock data
+df = pd.DataFrame(all_stock_data)
+
+# Save the DataFrame to a CSV file
+df.to_csv('stock_prices_nse_bse.csv', index=False)
+
+print("Stock prices have been successfully saved to stock_prices_nse_bse.csv")
